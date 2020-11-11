@@ -33,14 +33,8 @@ var app = new Vue({
         },
 
         // qui rimuovo il todo ed essendo una funzione che non si genera al click la inizializzo nel mounted
-        rimuovo_todo() {
-            let togli_todo = this.lista_todo.pop(this.todo_utente);
-        },
-
-        //registro gli eventi del mouse
-        registroMouse(event) {
-            this.x = event.clientX;
-            this.y = event.clientY;
+        rimuovo_todo(index) {
+            this.lista_todo.splice(index, 1)
         },
 
         // questa funzione va lo switch di colori su delle classi impostate, in questo caso cambia le icone ed il wrapper di vue

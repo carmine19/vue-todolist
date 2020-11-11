@@ -13,6 +13,10 @@
 
 }
 
+ul li {
+    cursor: pointer;
+}
+
 .bianco {
     background: #fff;
     transition: 0.3s;

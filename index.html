@@ -11,21 +11,16 @@
     <body>
 
      <!-- inizio wrap vue -->
-        <div id="app" :class="bianco" @mousemove="registroMouse(event)">
-            <div class="box-coordinate">
-                    <img src="https://fakeimg.pl/300/">
-                     <p :class="icone_nere">Coordinate asse x = {{x}}</p>
-                     <p :class="icone_nere">Coordinate asse y = {{y}}</p>
-                </div>
+        <div id="app" :class="bianco">
             <!-- il template di vue ci permette di rederizzare i suoi file al interno o no, quindi potremo inserire della logica e
              se questa logica si avvera il template verrà creato altrimenti no-->
-            <template>
                 <div class="box-dark">
                     <i class="fas fa-toggle-off fa-2x" @click="dark_mode()" :class="icone_nere"></i>
                 </div>
 
                 <!-- creo i box dove ci saranno i pulsanti ed l input text dove aggiungerò le mie funzioni -->
                 <div class="input-box">
+                    <h1 :class="icone_nere">To-do list</h1>
                     <input class="inp_box" type="text" v-model="todo_utente" @keyup.enter="aggiungo_todo">
                     <div class="btn btn-primary" @click="aggiungo_todo()">Aggiungi</div>
                     <div class="btn btn-danger" @click="rimuovo_todo()">Rimuovi</div>
@@ -34,13 +29,12 @@
                 <!-- creo il box della lista dove andro a ciclare il mio array -->
                 <div class="box-list-todo">
                     <ul>
-                        <li v-for="lista in lista_todo" :class="icone_nere">
+                        <li v-for="(lista, index) in lista_todo" :class="icone_nere" @click="rimuovo_todo()">
                             {{lista}}
                         </li>
                     </ul>
                 </div>
 
-            </template>
 
             <!-- fine wrap vue -->
         </div>
